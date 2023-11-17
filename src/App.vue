@@ -4,24 +4,31 @@ export default {
   name: 'App',
   data() {
     return {
-      project_api: 'http://127.0.0.1:8000/api/project',
+      base_url: 'http://127.0.0.1:8000',
+      project_api: '/api/project',
       projects: [],
     }
   },
-  mounted() {
-    axios
-      .get(this.project_api)
-      .then(response => { console.log(response) })
-      .catch(err => {
-        console.error(err);
-      })
+  methods: {
+    getProjects() {
+      const url = this.base_url + this.project_api;
+      axios
+        .get(url)
+        .then(response => {
+          console.log(response);
+          this.projects = response.result
+        })
+        .catch(err => {
+          console.error(err);
+        })
+    }
   }
 }
 </script>
 
 <template>
   <div>
-    <p>Hello world</p>
+
   </div>
 </template>
 
