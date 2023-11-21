@@ -101,3 +101,8 @@ Warning if doing posts.data.length it will not be an array so we trasform posts 
 # Errors
 
 1. create a page called NotFound.vue in which you add an error message such as 404|PAGE NOT FOUND and a link to return to the first page
+
+2. Then go to single project and implement the error with an if clause
+![Alt text](Error.png)
+
+3. Read and study https://router.vuejs.org/guide/essentials/navigation.html 
