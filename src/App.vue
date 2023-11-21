@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+import ProjectCard from './components/ProjectCard.vue';
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
 export default {
@@ -27,7 +28,8 @@ export default {
   },
   components: {
     AppHeader,
-    AppFooter
+    AppFooter,
+    ProjectCard
   }
 }
 </script>
@@ -35,7 +37,9 @@ export default {
 <template>
   <AppHeader />
 
-  <main></main>
+  <main>
+    <RouterView />
+  </main>
 
   <AppFooter />
 </template>
