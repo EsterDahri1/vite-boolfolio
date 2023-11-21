@@ -1,22 +1,22 @@
 <script>
+import { state } from '../state.js';
 export default {
     name: 'ProjectCard',
-    props: {
-        project: Object
-    },
+    props: ['project'],
     data() {
         return {
-
+            state
         }
-    }
+    },
 }
 </script>
 
 <template>
     <div class="col">
+        <h1>Projects</h1>
         <div class="card h-100">
 
-            <img height="200" class="object-fit-cover" :src="project.thumb" alt="">
+            <img :src="state.base_url + '/storage/' + project.cover_image" alt="">
 
             <div class="card-body">
 
@@ -24,11 +24,10 @@ export default {
 
                 <div><strong>Description:</strong>{{ project.description }}</div>
 
-                <div><strong>Content:</strong>{{ project.content }}</div>
 
                 <div>
                     <strong>Website:</strong>
-                    <a :href="project.project_url">
+                    <a :href="project.link">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1em"
                             viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                             <path
@@ -39,7 +38,7 @@ export default {
 
                 <div>
                     <strong>Git Hub:</strong>
-                    <a :href="project.git_url">
+                    <a :href="project.github">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1em"
                             viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                             <path

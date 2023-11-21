@@ -1,12 +1,16 @@
 
   
 <script>
+import { state } from '../state.js';
 import axios from 'axios';
 export default {
     name: 'SingleProjectView',
     data() {
         return {
-            post: {}
+            state,
+            project: {},
+            type: '',
+            technologies: [],
         }
     },
     mounted() {
@@ -14,7 +18,7 @@ export default {
         axios.get(url)
             .then(response => {
                 console.log(response.result);
-                this.post = response.result
+                this.project = response.data.result
             })
             .catch(err => {
                 console.log(err.message);
