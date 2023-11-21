@@ -5,10 +5,26 @@ import ProjectsView from "./views/ProjectsView.vue";
 import ContactsView from "./views/ContactsView.vue";
 
 const routes = [
-    { path: '/', component: HomeView },
-    { path: '/about', component: AboutView },
-    { path: '/Projects', component: ProjectsView },
-    { path: '/contacts', component: ContactsView },
+    {
+        path: '/',
+        name: 'home',
+        component: HomeView
+    },
+    {
+        path: '/about',
+        name: 'about',
+        component: AboutView
+    },
+    {
+        path: '/Projects',
+        name: 'projects',
+        component: ProjectsView
+    },
+    {
+        path: '/contacts',
+        name: 'contacts',
+        component: ContactsView
+    },
 ];
 
 const router = createRouter({
