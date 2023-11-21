@@ -96,3 +96,8 @@ import ContactsView from "./views/ContactsView.vue";
 
 8. ![Alt text](image-2.png)
 Warning if doing posts.data.length it will not be an array so we trasform posts in null and then put in v-if only posts
+
+
+# Errors
+
+1. create a page called NotFound.vue in which you add an error message such as 404|PAGE NOT FOUND and a link to return to the first page
