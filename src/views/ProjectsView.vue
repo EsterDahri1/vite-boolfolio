@@ -1,30 +1,40 @@
 <script>
 import axios from 'axios';
-import { state } from '../state.js';
-import ProjectList from '../components/ProjectList.vue';
 export default {
     name: 'ProjectsView',
     data() {
         return {
-            state
+            project_api: 'http://localhost:8000/api/projects',
+            projects: [],
         }
     },
-    components: {
-        ProjectList
+    mounted() {
+        axios
+            .get(this.project_api)
+            .then(response => {
+                console.log(response);
+                this.projects = response.data.result
+            })
+            .catch(err => {
+                console.error(err);
+            })
     }
 }
 </script>
 
 <template>
-    <div class="container py-5">
-        <h1 class="py-1">Projects</h1>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
-
-            <ProjectList />
-
-
+    <h1>Projects</h1>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col" v-for="project in projects.data">
+                    <div class="card">
+                        <h4>{{ project.title }}</h4>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <style lang="scss" scoped></style>

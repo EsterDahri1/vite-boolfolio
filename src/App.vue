@@ -1,14 +1,14 @@
 <script>
-import ProjectCard from './components/ProjectCard.vue';
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
+import { RouterView } from 'vue-router';
 
 export default {
   name: 'App',
   components: {
     AppHeader,
     AppFooter,
-    ProjectCard
+    RouterView
   }
 }
 </script>
