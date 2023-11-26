@@ -1,40 +1,44 @@
 <script>
-import axios from 'axios';
+import ProjectCard from '../components/ProjectCard.vue';
 export default {
     name: 'ProjectsView',
     data() {
         return {
-            project_api: 'http://localhost:8000/api/projects',
-            projects: [],
+
         }
     },
-    mounted() {
-        axios
-            .get(this.project_api)
-            .then(response => {
-                console.log(response);
-                this.projects = response.data.result
-            })
-            .catch(err => {
-                console.error(err);
-            })
+    components: {
+        ProjectCard,
     }
 }
 </script>
 
 <template>
-    <h1>Projects</h1>
-    <section>
+    <section class="title">
+        <div class="container pt-4">
+            <h1 class=" text-center text-danger-emphasis fw-bold">Projects</h1>
+
+        </div>
+    </section>
+    <section class="intro bg-danger-subtle">
         <div class="container">
-            <div class="row">
-                <div class="col" v-for="project in projects.data">
-                    <div class="card">
-                        <h4>{{ project.title }}</h4>
+            <div class="row align-items-md-stretch">
+                <div class="col-md-6">
+                    <div class="h-100 p-5 text-danger-emphasis  border rounded-3">
+                        <h2>Take a look at what I've created 🧐</h2>
+                        <p>
+                            This is what I worked for from the beginning of this journey 6 months ago.
+                            My blood, sweat and tears.
+                            Now I hope to be able to create even more interesting projects using different types of coding
+                            languages.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <ProjectCard />
 </template>
 
 <style lang="scss" scoped></style>
