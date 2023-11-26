@@ -57,8 +57,8 @@ export default {
 
 
                 })
-                .catch(error => {
-                    console.error(error.message);
+                .catch(err => {
+                    console.error(err);
                 })
 
         }
@@ -80,7 +80,7 @@ export default {
         </div>
     </div>
     <div class="container py-5">
-        <form action="" v-on:submit.prevent="sendForm()">
+        <form method="POST" action="#" v-on:submit.prevent="sendForm()">
             <div v-if="!loading">
                 <div class="mb-3">
                     <label for="name" class="form-label text-uppercase text-danger-emphasis">Name</label>
@@ -89,7 +89,7 @@ export default {
                     <small id="nameHelper" class="text-muted">Type your name</small>
 
                     <div class="alert alert-danger" role="alert" v-if="errors.name">
-                        <strong>Erorrs!</strong>
+                        <strong>Error!</strong>
 
                         <ul>
                             <li v-for="message in errors.name">{{ message }}</li>
@@ -106,7 +106,7 @@ export default {
                     <small id="phoneHelper" class="text-muted">Type your phone</small>
 
                     <div class="alert alert-danger" role="alert" v-if="errors.phone">
-                        <strong>Erorrs!</strong>
+                        <strong>Error!</strong>
 
                         <ul>
                             <li v-for="message in errors.phone">{{ message }}</li>
@@ -121,7 +121,7 @@ export default {
                     <small id="emailHelper" class="text-muted">Type your email</small>
 
                     <div class="alert alert-danger" role="alert" v-if="errors.email">
-                        <strong>Erorrs!</strong>
+                        <strong>Error!</strong>
 
                         <ul>
                             <li v-for="message in errors.email">{{ message }}</li>
@@ -137,7 +137,7 @@ export default {
                         :class="{ 'is-invalid': errors.message }"></textarea>
 
                     <div class="alert alert-danger" role="alert" v-if="errors.message">
-                        <strong>Erors!</strong>
+                        <strong>Error!</strong>
 
                         <ul>
                             <li v-for="message in errors.message">{{ message }}</li>
@@ -162,7 +162,7 @@ export default {
             </div>
             <div class="loader text-center py-5" v-else>
 
-                <i class="fa-solid fa-spinner fa-spin-pulse fa-2xl"></i>
+
                 <div class="mt-3">
                     Loading...
                 </div>
